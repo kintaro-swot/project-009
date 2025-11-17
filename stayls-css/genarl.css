@@ -1,0 +1,22 @@
+
+
+body{
+        font-family: "Montserrat", sans-serif;
+        margin:0;
+}
+/* base  */
+
+ul{
+  list-style: none;
+  padding:0;
+}
+a{
+  text-decoration: none;
+}
+
+/* reusebal css clases */
+
+.container{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
