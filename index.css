@@ -1,0 +1,160 @@
+body {
+    /* Background Gradient (Kept from your choice) */
+    background: linear-gradient(
+        to bottom,
+        #1f0303 0%,
+        #4d0d0d 40%,
+        #121212 100%
+    );
+    background-color: #121212;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    color: white;
+
+    /* Center the entire .full-container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Remove default body margin */
+    padding: 20px; /* Add some padding for small screens */
+    box-sizing: border-box;
+}
+
+/* 1. Main Wrapper for the Content and Logo */
+.center-container {
+    /* On large screens: Arrange content and logo side-by-side */
+    display: flex;
+    flex-direction: row; /* Default for large screens (Side-by-side) */
+    width: 90%;
+    max-width: 1200px;
+    align-items: center; /* Vertically center items */
+    gap: 50px; /* Space between the two containers */
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.4); /* Subtle background for contrast */
+    border-radius: 10px;
+}
+
+/* 2. Styling for the Text Content Container */
+.container {
+    /* Takes up more space on large screens */
+    flex: 1;
+    min-width: 300px; /* Prevent it from getting too small */
+    text-align: left; /* Align text within the container */
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* 3. Styling for the Logo Container */
+.container2 {
+    /* For large screens, the logo is on the side */
+    flex-shrink: 0; /* Don't shrink the logo container */
+    max-width: 400px;
+    text-align: center;
+}
+
+.container2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* Optional: Slight rounding for the image */
+}
+
+/* 4. Styling for the Button */
+.btn {
+    background-color: #4d0d0d; /* Red accent color */
+    border: 2px solid #ff0000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff0000;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 5. MEDIA QUERY FOR SMALL DEVICES (The Core Change) */
+/* Apply these styles when the screen width is 768px or less */
+@media (max-width: 768px) {
+    .center-container {
+        /* On small screens: Stack content vertically */
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Change the order: Logo (container2) comes first, Content (container) comes second */
+    .container {
+        order: 2; /* Moves the text content down */
+        text-align: center; /* Center the text content */
+        width: 100%;
+    }
+
+    .container2 {
+        order: 1; /* Moves the logo up */
+        margin-bottom: 30px; /* Add space below the logo */
+        max-width: 250px; /* Make the logo slightly smaller on mobile */
+    }
+}
+/* Add this to your existing CSS file */
+
+.disclaimer {
+    /* Position the disclaimer below the main content */
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 50px; /* Space above the disclaimer */
+    padding: 15px;
+    
+    /* Style it to be noticeable but not too bright */
+    background-color: rgba(77, 13, 13, 0.7); /* Dark Red/Maroon with transparency */
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9rem; /* Smaller font for secondary information */
+    color: #f0f0f0; /* Light gray text */
+    
+    /* Ensure it aligns with the center-container */
+    align-self: center; 
+}
+
+/* If you need to make the body display its children vertically, 
+   which is helpful since the body is set to 'display: flex' for centering: */
+.full-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Also, update the body to remove the 'justify-content: center' 
+   if you want the .full-container to take up the full vertical space 
+   and center its content. Or simply update the body as shown below: */
+
+/* MODIFIED BODY STYLE (Ensure .full-container is centered) */
+body {
+    /* ... (Your existing background, font-size, color) ... */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centers .full-container horizontally */
+    align-items: center;     /* Centers .full-container vertically */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    /* ... (rest of the body styles) ... */
+}

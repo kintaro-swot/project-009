@@ -1,0 +1,157 @@
+/* Basic Reset and Box Sizing */
+
+
+.form-container {
+    width: 100%;
+    max-width: 500px; /* Constrain the form's width */
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #333;
+    padding-bottom: 5px; /* Space for the underline effect */
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* The blue/teal underline effect from the image */
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 25%; /* Length of the line */
+    height: 3px;
+    background-color: #e4934d; /* Teal/Cyan color */
+}
+
+/* Form Group Layout */
+.form-group {
+    margin-bottom: 25px;
+    margin:10px;
+}
+
+/* Label Styling - Slightly different color and small size */
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px; /* Adjust spacing between label and input */
+    position: absolute;
+    pointer-events: none; /* Allows clicks to pass through to the input */
+    transition: all 0.2s ease-out;
+}
+
+/* Input and Textarea Styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #ccc; /* The main line separator */
+    outline: none;
+    font-size: 1em;
+    color: #333;
+    background: transparent;
+    line-height: 25px; /* Ensures space for text input */
+}
+
+/* Focus effect - making the line darker */
+input:focus,
+textarea:focus {
+    border-bottom: 1px solid #eeb045;
+}
+
+/* Positioning the label to look like the image (inline with the line) */
+.form-group label {
+    /* For the specific look in the image where the label is on the same line as the text input */
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: -15px; /* Pull the label up to be near the line */
+    transform: translateY(-5px); /* Fine-tuning vertical position */
+}
+
+/* Textarea specific adjustments */
+textarea {
+    resize: vertical; /* Allow vertical resizing, not horizontal */
+    min-height: 40px; /* Minimum height */
+    padding-bottom: 15px; /* Ensures space above the line for text */
+    padding-top: 10px;
+}
+
+.message-group {
+    position: relative;
+    margin-bottom: 40px; /* Extra space for the textarea and its indicator */
+}
+
+.resize-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    font-size: 0.7em;
+    color: #ccc;
+    cursor: se-resize;
+    /* A simple triangle-like look for the resize handle */
+    border-right: 2px solid #ccc; 
+    border-bottom: 2px solid #ccc;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+}
+
+/* Mandatory Note Styling */
+.mandatory-note {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* SEND Button Styling */
+.send-button {
+    width: 150px; /* Fixed width */
+    padding: 12px 0;
+    background-color: #ffbc40; /* Teal/Cyan color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.send-button:hover {
+    background-color: #f2aa36; /* Slightly darker on hover */
+}
+
+.last-img img{
+    max-width: 500px;
+    display: flex;
+}
+
+.form-div-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:900px) {
+    .form-div-container{
+    align-items: center;
+    flex-direction: column;
+    
+}
+.last-img img{
+    max-width: 100%;
+}
+}

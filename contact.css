@@ -1,0 +1,35 @@
+.location-and-contact-container{
+    
+    margin-top: 100px;
+}
+
+.location-box, .contact-box{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    margin:10px;
+    border:1px solid gray;
+    display: block;
+}
+
+.map-icon,
+.ri-contacts-line{
+    color:orange;
+    border-radius: 50%;
+    border: 4px solid orange;
+    padding: 5px;
+    width:65px;
+    height:65px;
+    font-size:2rem
+}
+@media  (min-width:700px) {
+    .location-and-contact-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}

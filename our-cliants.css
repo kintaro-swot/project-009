@@ -1,0 +1,87 @@
+/* General Body and Container Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.gallery-section {
+    max-width: 1200px; /* Adjust as needed for your layout */
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #333; /* Example underline */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- Gallery Grid Layout --- */
+.gallery-grid {
+    display: grid;
+    /* Create a responsive grid: 
+       Items will fit automatically, trying to maintain a minimum width of 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Space between items */
+}
+
+/* --- Individual Gallery Item --- */
+.gallery-item {
+    position: relative;
+    overflow: hidden; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth item movement */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Slightly lift item on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto; 
+    display: block; 
+    /* The key property for the blur effect: */
+    transition: filter 0.3s ease; /* Smooth transition for the blur */
+    filter: blur(0px); /* No blur by default */
+}
+
+/* --- Hover Effect: Blur the image background --- */
+.gallery-item:hover img {
+    filter: blur(5px); /* Apply a 5px blur on hover */
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* On medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    }
+}
+
+/* On small screens (e.g., phones) */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column layout for better readability */
+    }
+    .gallery-section {
+        padding: 15px;
+    }
+}

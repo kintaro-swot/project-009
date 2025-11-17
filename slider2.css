@@ -1,0 +1,176 @@
+/* --- MULTI-VIEW SLIDER STYLES (3-up with Gaps) --- */
+.multi-view-slider-container {
+    /* Define the TOTAL width for the 3 visible slides */
+    width: 90%; 
+    max-width: 1200px;
+    height: 300px;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    padding: 10px; /* Only shows what fits in the container */
+}
+
+.multi-view-slider-wrapper {
+    /* Set the gap between flex items (the slides) */
+    gap: 20px; /* This creates the 20px column gap you requested */
+    padding: 0 10px; /* Optional: Add padding to the ends to center the gap */
+    
+    /* We now need to calculate the width. 
+       4 slides + 3 gaps (20px each) + 2 padding (10px each) = 80px total margin/gap space. 
+       This calculation is complex, so let's use a simpler approach based on flex-grow. */
+
+    /* The simplest approach: Let the flex container manage the gap */
+    width: 100%; /* The container is now 100% of the parent */
+    display: flex;
+    transition: transform 0.8s ease-in-out; 
+    height: 100%;
+}
+
+.multi-view-slide {
+    /*
+     * Calculation for 3 slides with a gap:
+     * Total width: 100%
+     * Gaps (2 spaces): 2 * 20px = 40px
+     * Remaining width for 3 images: calc(100% - 40px)
+     * Width per image: calc((100% - 40px) / 3)
+     */
+    min-width: calc((100% - 40px) / 3);
+    height: 100%;
+    object-fit: cover;
+    /* Disable shrinking so min-width is respected */
+    flex-shrink: 0; 
+}
+
+
+/* --- BUTTON STYLING (No change needed, only adding the relevant classes) --- */
+/* (Keep the .multi-view-prev-btn and .multi-view-next-btn styles as they were) */
+/* ... */
+
+.multi-view-slider-container p{
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    margin-left: 15px;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.multi-view-slider-container{
+    background-color: rgb(255, 245, 245);
+    padding: 10px;
+}
+
+
+
+/* --- Basic Reset & Container Styling --- */
+.client-slider-container {
+    max-width: 1200px; /* Max width for your slider */
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    margin:20px;
+}
+
+/* --- Slider Wrapper (Sets the viewable area) --- */
+.slider-wrapper {
+    position: relative; /* Crucial for positioning arrows */
+    overflow: hidden; /* **Hides the off-screen slides** */
+    margin: 0 40px; /* Space for the navigation buttons */
+}
+
+/* --- Slider Track (Moves the slides) --- */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+}
+
+/* --- Slide Item (The logos) --- */
+.slide-item {
+    /* Base width: 100% / 5 visible items = 20% */
+    flex: 0 0 20%; /* Don't grow, don't shrink, base width 20% */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex; /* Centers the image */
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.slide-item img:hover {
+    opacity: 1;
+}
+
+/* --- Navigation Buttons --- */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    line-height: 1;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.slider-btn:hover {
+    opacity: 1;
+    background: #007bff; /* Example: A blue color on hover */
+}
+
+.prev-btn {
+    left:-10px; /* Position outside the wrapper */
+}
+
+.next-btn {
+    right:-10px; /* Position outside the wrapper */
+}
+
+/* ---------------------------------------------------- */
+/* --- RESPONSIVENESS using Media Queries --- */
+/* ---------------------------------------------------- */
+
+/* Screen size: Large Desktops (e.g., > 1024px) - Shows 5 images (Base) */
+/* .slide-item { flex: 0 0 20%; } (Already defined above) */
+
+
+/* Screen size: Tablets & smaller Laptops (e.g., 768px to 1024px) - Shows 4 images */
+@media (max-width: 1024px) {
+    .slide-item {
+        /* 100% / 4 visible items = 25% */
+        flex: 0 0 25%;
+    }
+}
+
+/* Screen size: Small Tablets (e.g., 480px to 768px) - Shows 3 images */
+@media (max-width: 768px) {
+    .slide-item {
+        /* 100% / 3 visible items = 33.333% */
+        flex: 0 0 33.333%;
+    }
+}
+
+/* Screen size: Mobile Phones (e.g., < 480px) - Shows 2 images */
+@media (max-width: 480px) {
+    .slide-item {
+        /* 100% / 2 visible items = 50% */
+        flex: 0 0 50%;
+    }
+    
+}
